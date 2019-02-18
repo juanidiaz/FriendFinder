@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Finder Engine</title>
+
+    <!-- Add iDiaz favicon -->
+    <link rel="icon" href="./static/idiaz_yellow-favicon.png">
+
+    <!-- Link to: Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Link to: Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- Link to: Font Awesome 5 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Friend Finder<sup><i class="far fa-registered" style='font-size:15px'></i></sup> survey</h2>
+        <hr>
+
+        <section id="intro">
+            <h5>What's your name? <span style="color:red">*</span></h5>
+            <input type="text" id="name" class="form-control answer" required="">
+
+            <h5>Link to a photo of you <span style="color:red">*</span></h5>
+            <input type="text" id="photo" class="form-control answer" required="">
+
+            <span style="color:red; font-size:10px">* Required fields</span>
+        </section>
+
+        <hr>
+
+        <section id="questions">
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 1</strong></h4>
+            <h5>You plan for a trip the day before.</h5>
+
+            <select name="q1" class="answer" id="q1" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 2</strong></h4>
+            <h5>If you have extra money at the end of the month you save it.</h5>
+
+            <select name="q2" class="answer" id="q2" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 3</strong></h4>
+            <h5>You are interested in politics.</h5>
+
+            <select name="q3" class="answer" id="q3" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 4</strong></h4>
+            <h5>When the movie starts you like silence in the theatre.</h5>
+
+            <select name="q4" class="answer" id="q4" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 5</strong></h4>
+            <h5>The toilet paper must roll under... not over.</h5>
+
+            <select name="q5" class="answer" id="q5" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 6</strong></h4>
+            <h5>You always -or almost always- use the emergency brake when parking.</h5>
+
+            <select name="q6" class="answer" id="q6" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 7</strong></h4>
+            <h5>You have at least one credit card.</h5>
+
+            <select name="q7" class="answer" id="q7" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 8</strong></h4>
+            <h5>Star Trek is way cooler than Star Wars.</h5>
+
+            <select name="q8" class="answer" id="q8" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 9</strong></h4>
+            <h5>The real meaning of life is enjoying the moment.</h5>
+
+            <select name="q9" class="answer" id="q9" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+
+            <h4 style="color:rgb(0, 123, 255)"><strong>Q 10</strong></h4>
+            <h5>Elvis is not dead.</h5>
+
+            <select name="q10" class="answer" id="q10" required="">
+                <option value="">Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <hr>
+        </section>
+
+        <section id="submit" style="text-align:center">
+            <button type="submit" class="btn btn-primary btn-lg" id="submit">Submit answers</button>
+            <hr>
+        </section>
+
+        <footer class="footer" style="margin-bottom:85px">
+            <div class="container">
+                <p><a href="/api/friends"><i class="fas fa-clipboard-list"></i> API Friends List</a> | <a target="_none"
+                        href="https://github.com/juanidiaz/FriendFinder"><i class="fab fa-github"></i> GitHub repo</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- RESULT MODAL -->
+    <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h2 class="modal-title"><strong>Meet your best Match <i class="fab fa-check-circle"></i></strong></h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="match-name"></h2>
+                    <img id="match-img" src="#" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--  ========= OFFICIAL FOOTER ========= -->
+    <div class="fixed-bottom" id="footerNav">
+        <div id="footer" style="text-align:center">
+            <p>Copyright © 2008 <strong>JDI</strong>. All Rights Reserved.<br>
+                For more info check <i class="fas fa-globe"></i> <a href="http://www.idiaz.ca" style="color:rgb(0, 123, 255);"
+                    target="_none">www.idiaz.ca</a> or reach <i class="fas fa-envelope-open"></i> <a href="mailto:jdi@idiaz.ca"
+                    style="color:rgb(0, 123, 255);">jdi@idiaz.ca.</a></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            function validateForm() {
+                var isValid = true;
+
+                $(".answer").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            };
+
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+
+            console.log(validateForm());
+
+            console.log(userData);
+
+        });
+    </script>
+</body>
+
+</html>

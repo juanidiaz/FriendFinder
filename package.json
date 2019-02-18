@@ -1,0 +1,24 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Dating app based on node.js and Express server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanidiaz/FriendFinder.git"
+  },
+  "author": "Juan I Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanidiaz/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/juanidiaz/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
