@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friend Finder Engine</title>
 
-    <!-- Add iDiaz favicon -->
-    <link rel="icon" href="./static/idiaz_yellow-favicon.png">
-
     <!-- Link to: Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -186,29 +183,30 @@
 
         <footer class="footer" style="margin-bottom:85px">
             <div class="container">
-                <p><a href="/api/friends"><i class="fas fa-clipboard-list"></i> API Friends List</a> | <a target="_none"
-                        href="https://github.com/juanidiaz/FriendFinder"><i class="fab fa-github"></i> GitHub repo</a>
-                </p>
+                <p><a target="_none" href="/api/friends"><i class="fas fa-clipboard-list"></i> API Friends List</a> |
+                    <a target="_none" href="https://github.com/juanidiaz/FriendFinder"><i class="fab fa-github"></i>
+                        GitHub repo</a></p>
             </div>
         </footer>
     </div>
 
-    <!-- RESULT MODAL -->
-    <div id="results-modal" class="modal fade" role="dialog">
+    <!-- MODAL TO SHOW THE MATCH -->
+    <div class="modal fade" id="modal-showMatch" role="dialog">
         <div class="modal-dialog">
 
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h2 class="modal-title"><strong>Meet your best Match <i class="fab fa-check-circle"></i></strong></h2>
+                    <h2 class="modal-title"><i class="fas fa-user-friends"></i> We found your match</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    <h2 id="match-name"></h2>
-                    <img id="match-img" src="#" alt="">
+                    <h2 id="matchedFriend-name"></h2>
+                    <img id="matchedFriend-photo" src="#" alt="Matched friend foto">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
@@ -216,7 +214,7 @@
     </div>
 
     <!--  ========= OFFICIAL FOOTER ========= -->
-    <div class="fixed-bottom" id="footerNav">
+    <div class="fixed-bottom" id="footerNav" style="background-color: rgba(255, 255, 255, 0.9);">
         <div id="footer" style="text-align:center">
             <p>Copyright © 2008 <strong>JDI</strong>. All Rights Reserved.<br>
                 For more info check <i class="fas fa-globe"></i> <a href="http://www.idiaz.ca" style="color:rgb(0, 123, 255);"
@@ -226,41 +224,77 @@
     </div>
 
     <script type="text/javascript">
+        // Get the answers from the form
+
+        // This variable will track what's missing in the form
+        var missing = [];
+
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
+            // Confirm that all fields hav been filled correctly
             function validateForm() {
+
+                // GO/NO-GO flag
                 var isValid = true;
 
+                // Check all form elements for values
                 $(".answer").each(function () {
                     if ($(this).val() === "") {
+                        // The ID of those elements which are empty will be added to 'missing' array
+                        missing.push($(this).attr("id").toUpperCase())
+
+                        // set GO/NO-GO flag to FALSE... something is missing
                         isValid = false;
+
+                        // console.log($(this).attr("id"));
                     }
                 });
+
+                // Return the GO/NO-GO flag status
                 return isValid;
             };
 
-            var userData = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    $("#q3").val(),
-                    $("#q4").val(),
-                    $("#q5").val(),
-                    $("#q6").val(),
-                    $("#q7").val(),
-                    $("#q8").val(),
-                    $("#q9").val(),
-                    $("#q10").val()
-                ]
-            };
+            if (validateForm()) {
+                // All field were filed correctly... next step
 
-            console.log(validateForm());
+                // All the info from the current survey
+                var userData = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val(),
+                    ]
+                };
 
-            console.log(userData);
+                // AJAX post the data to the friends API.
+                $.post("/api/friends", userData, function (data) {
 
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#matchedFriend-name").text("Meet: " + data.name);
+                    $("#matchedFriend-photo").attr("src", data.photo);
+
+                    // Show the modal with the best match
+                    $("#modal-showMatch").modal("toggle");
+
+                    //console.log(data)
+
+                });
+
+            } else {
+                // Some field hasn't been filled correctly
+                alert("You cannot leave empty fields. The folowing elements need to have valid content: " +
+                    missing.join(", "));
+            }
         });
     </script>
 </body>
