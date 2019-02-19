@@ -4,35 +4,39 @@
 > **Date:**           February 2019
 
 ## DESCRIPTION
-On-line version of the popular rock-paper-scissors game. In this version you will be able to just "watch" other people play or, if a spot is available, you can play the game against someone else.
+This **FULL STACK** project is a compatibility-based "FriendFinder" application -- basically a dating app. The application will present a survey to the user; once the survey is filled in and submitted the back end will return the mest match from the current pool of friends. Then the front end (site) will display this friends name and image.
 
 ## INSTRUCTIONS
-1. First enter your name in the field below. You wont be able to continue without it.
-2. Select to play as `PLAYER 1` or `PLAYER 2`. If these buttons do not appear is becasue someone else is already playing.
-3. If you want to WATCH the game then click that button. If a player spot becomes available once you are watching you will se the PLAYER button.
-4. Once playing, select `ROCK`, `PAPER` or `SCISSORS` by clicking on the icon of your coosing.
-5. You will only see your oponent's choice when both of you have pick.
-6. You could either `WIN`, `TIE` or `LOOSE` your match. Once the result is shown, the game will reset and continue for a new match.
-7. If you want to leave the game and ve a viewer click `QUIT PLAYING`.
-8. **Make sure you don't close or refresh your browser as this will END YOUR GAME!**
+- This project has been deployed to Heroku, please enter to access https://idiaz-friendfinder.herokuapp.com/ to see the project.
+1. Once on the home page click `Answer the survey!` to enter to the survey page.
+2. Make sure to fill in **ALL** the fields!
+3. Click `Submit answers` at the end of the survey to meet your match.
+
+- There is a direct API link to receive all the friend in the system.
 
 ## SCREENSHOTS
-![Welcome](./assets/images/rps_welcome.png)
+`Home page`
+![Home page](./app/public/images/home.png)
 
-![player1 screen](./assets/images/rps_player1.png)
+`Survey page`
+![Survey](./app/public/images/survey1.png)
 
-![Welcome](./assets/images/rps_match.png)
+`Survey page`
+![Survey](./app/public/images/survey2.png)
 
-![Welcome](./assets/images/rps_viewer.png)
+`Displaying your match`
+![Meet your match](./app/public/images/match.png)
 
 ## BUILDING TOOLS
-- HTML, CSS
-- Javascript and jQuery
-- Bootstrap
-- Google Firebase (Realtime)
-
+- FRONT END
+    - HTML, CSS
+    - Javascript and jQuery
+    - Bootstrap
+    - AJAX - API
+- BACK END
+    - node.js
+    - Express
 
 ## QUESTIONS OR COMMENTS
-- Logo taken from [http://www.redbits.com/iphone/rps/](http://www.redbits.com/iphone/rps/).
 - Feel free to contact the developer @ <jdi@idiaz.ca>!
-- See the project [live](https://juanidiaz.github.io/RPS-Multiplayer/).
+- See the project [live](https://idiaz-friendfinder.herokuapp.com/).
